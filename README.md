@@ -20,13 +20,13 @@ git clone <this_repo_url>
 cd gridradar2influx
 ```
 
-Copy the config from the [example](gridradar2influx.ini-sample) to ```my-gridradar2influx.ini``` and edit
+Copy the config from the [example](config_template.ini) to ```config.ini``` and edit
 the settings.
 
 Now you should be able to build and run the image with following commands
 ```
 docker build -t gridradar2influx .
-docker run -d -v /PATH/TO/my-gridradar2influx.ini:/app/gridradar2influx.ini --name gridradar2influx gridradar2influx
+docker run -d -v /PATH/TO/config.ini:/app/config.ini --name gridradar2influx gridradar2influx
 ```
 
 You can alternatively use the provided [docker-compose.yml](docker-compose.yml):
@@ -40,10 +40,10 @@ If you're running the influxdb in a docker on the same host you need to add `--l
 ```
 docker run --name=influxdb -d -p 8086:8086 influxdb
 ```
-* set influxdb host in `gridradar2influx.ini` to `influxdb`
+* set influxdb host in `config.ini` to `influxdb`
 * run docker container
 ```
-docker run --link influxdb -d -v /PATH/TO/my-gridradar2influx.ini:/app/gridradar2influx.ini --name gridradar2influx gridradar2influx
+docker run --link influxdb -d -v /PATH/TO/config.ini:/app/config.ini --name gridradar2influx gridradar2influx
 ```
 
 
