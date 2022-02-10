@@ -1,0 +1,20 @@
+[Unit]
+Description=gridradar-API to InfluxDB daemon
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nogroup
+WorkingDirectory=/opt/gridradar2influx
+ExecStart=/opt/gridradar2influx/.venv/bin/python /opt/gridradar2influx/gridradar2influx.py -d
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=gridradar2influx
+RemainAfterExit=no
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
