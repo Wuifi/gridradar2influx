@@ -1,0 +1,11 @@
+argparse
+configparser
+#signal
+#logging
+#os
+requests
+#json
+#time
+#datetime
+#math
+influxdb
