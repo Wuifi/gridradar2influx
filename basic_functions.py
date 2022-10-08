@@ -12,8 +12,8 @@ import signal
 import time
 from datetime import datetime
 
-__version__ = "0.0.1"
-__version_date__ = "2022-02-05"
+__version__ = "0.0.2"
+__version_date__ = "2022-10-09"
 __description__ = "gridradar2influx"
 __license__ = "MIT"
 
@@ -21,7 +21,7 @@ __license__ = "MIT"
 
 # default vars
 running = True
-default_config = os.path.join(os.path.dirname(__file__), 'gridradar2influx.ini')
+default_config = os.path.join(os.path.dirname(__file__), 'config.ini')
 default_log_level = logging.INFO
 
 def parse_args():

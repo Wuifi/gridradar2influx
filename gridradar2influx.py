@@ -22,8 +22,8 @@ from app_functions import *
 from basic_functions import *
 from influx import *
 
-__version__ = "0.0.1"
-__version_date__ = "2022-02-05"
+__version__ = "0.0.2"
+__version_date__ = "2022-10-09"
 __description__ = "gridradar2influx"
 __license__ = "MIT"
 
