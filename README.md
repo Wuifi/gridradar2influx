@@ -30,22 +30,15 @@ docker run -d -v /PATH/TO/config.ini:/app/config.ini --name gridradar2influx gri
 ```
 
 You can alternatively use the provided [docker-compose.yml](docker-compose.yml):
-```
-docker-compose up -d
-```
+``docker-compose up -d``
 If you're running the influxdb in a docker on the same host you need to add `--link` to the run command.
 
 ### Example:
 * starting the influx container
-```
-docker run --name=influxdb -d -p 8086:8086 influxdb
-```
+``docker run --name=influxdb -d -p 8086:8086 influxdb``
 * set influxdb host in `config.ini` to `influxdb`
 * run docker container
-```
-docker run --link influxdb -d -v /PATH/TO/config.ini:/app/config.ini --name gridradar2influx gridradar2influx
-```
-
+``docker run --link influxdb -d -v /PATH/TO/config.ini:/app/config.ini --name gridradar2influx gridradar2influx``
 
 # Grafana
 
