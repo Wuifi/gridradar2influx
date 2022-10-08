@@ -1,6 +1,5 @@
-#FROM arm32v7/python:3.8-slim-buster
-#FROM python:3.8-slim-buster
-FROM python:3.6-slim
+FROM python:3.10.7-slim-bullseye
+#FROM python:3.6-slim
 
 # Set the working directory to /app
 WORKDIR /app
