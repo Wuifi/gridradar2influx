@@ -18,12 +18,12 @@ from datetime import datetime
 import requests
 import influxdb
 #import functions from files
-from app_functions import *
-from basic_functions import *
-from influx import *
+from lib.gridradar_api import *
+from lib.basic_functions import *
+from lib.influx import *
 
-__version__ = "0.0.2"
-__version_date__ = "2022-10-09"
+__version__ = "0.0.3"
+__version_date__ = "2023-04-18"
 __description__ = "gridradar2influx"
 __license__ = "MIT"
 

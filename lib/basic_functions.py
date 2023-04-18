@@ -12,8 +12,8 @@ import signal
 import time
 from datetime import datetime
 
-__version__ = "0.0.2"
-__version_date__ = "2022-10-09"
+__version__ = "0.0.3"
+__version_date__ = "2023-04-18"
 __description__ = "gridradar2influx"
 __license__ = "MIT"
 
