@@ -6,7 +6,7 @@ __pycache__/
 #user specific config including login credentials
 config.ini
 backup/
-securestuff.py
+config.py
 # C extensions
 *.so
 
