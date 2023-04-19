@@ -9,7 +9,8 @@ def metric_request_creator(metric,metrics_dict,querypmu):
     #calculate metric specific timerange    
     #starttime = "2021-05-26T02:36:17.3Z"
     #endtime = "2021-05-26T02:36:17.6Z"
-    endtime = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    # Minimum Data Delay: 30s
+    endtime = (datetime.utcnow() - timedelta(seconds=30)).strftime("%Y-%m-%dT%H:%M:%SZ")
     #print(endtime)
     starttime = (datetime.utcnow() - timedelta(hours=settings['timerange'])).strftime("%Y-%m-%dT%H:%M:%SZ")
     #print(starttime)
@@ -30,19 +31,6 @@ def metric_request_creator(metric,metrics_dict,querypmu):
 ##################
 
 #!/usr/bin/python3
-
-import logging
-import os
-import requests
-import json
-import pprint
-import time
-from datetime import datetime
-import math
-
-
-#!/usr/bin/python3
-
 import logging
 import os
 import requests
@@ -72,7 +60,7 @@ def getdatafromapi(url,token,request):
         logging.error(str(e))       
     return response
 
-def convert_dataset(response_dict,config):
+def convert_dataset(metric,response_dict,location):
     outDB=[]
     try:
         logging.debug("gridradar-API - response: %s", response_dict)
@@ -81,8 +69,8 @@ def convert_dataset(response_dict,config):
         for values in messdaten['datapoints']:
             #print(type(values[0]))
             if math.isnan(values[0])==False:
-                outDB_new = {'measurement': config.get('influxdb', 'measurement_name'),
-                             'tags': {'location': config.get('influxdb', 'location')},
+                outDB_new = {'measurement': metric,
+                             'tags': {'location': location},
                              'fields': {messdaten['target']: values[0]},
                              'time':timestamp_convert(values[1])}
                 outDB.append(outDB_new)
@@ -162,7 +150,7 @@ def getdatafromapi(url,token,request):
         logging.error(str(e))       
     return response
 
-def convert_dataset(response_dict,config):
+def convert_dataset2(response_dict,config):
     outDB=[]
     try:
         logging.debug("gridradar-API - response: %s", response_dict)
